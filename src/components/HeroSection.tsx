@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { SITE_METADATA, PHOTO_CREDITS } from '@/data/content';
-import { ArrowDown, Mountain, Compass, ShieldAlert, Sparkles, ExternalLink } from 'lucide-react';
+import { ArrowDown, Compass, Sparkles, ArrowRight, ShieldCheck, Mountain } from 'lucide-react';
 
 interface Props {
   onOpenCredits: () => void;
@@ -11,143 +11,149 @@ interface Props {
 
 export default function HeroSection({ onOpenCredits, onOpenIntegrity }: Props) {
   const [imgError, setImgError] = useState(false);
-  const heroCredit = PHOTO_CREDITS.chamonix;
+  const heroCredit = PHOTO_CREDITS.hero_montblanc;
 
   return (
-    <section id="home" className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Image Container */}
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-carbon-950"
+    >
+      {/* Cinematic Full-Bleed Background Image */}
       <div className="absolute inset-0 z-0">
         {!imgError ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={heroCredit.imageUrl}
-            alt="Chamonix and Mont Blanc Valley - Illustrative Alpine Backdrop"
-            className="w-full h-full object-cover object-center filter brightness-[0.42] contrast-105 scale-105 transform animate-fade-in"
+            alt="Alpine Massif Peak - Cinematic Hero Backdrop"
+            className="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.08] scale-105 transform animate-fade-in transition-all duration-1000"
             onError={() => setImgError(true)}
           />
         ) : (
-          /* Subtle mountain gradient backdrop */
-          <div className="w-full h-full bg-gradient-to-br from-slate-950 via-[#101915] to-[#12161A]" />
+          <div className="w-full h-full bg-gradient-to-br from-carbon-950 via-carbon-900 to-alpine-950" />
         )}
 
-        {/* Sophisticated editorial vignette gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E1216] via-[#0E1216]/60 to-transparent" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-[#0E1216]/90" />
+        {/* Sophisticated Editorial Vignettes */}
+        <div className="absolute inset-0 bg-gradient-to-t from-carbon-950 via-carbon-950/40 to-carbon-950/70" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-carbon-950/40 to-carbon-950/90 pointer-events-none" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center mt-6">
-        {/* Verification & Transparency Label */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 backdrop-blur-md mb-6 animate-fade-in">
+      {/* Top Editorial Status Pill */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 sm:pt-8 flex justify-center">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-carbon-900/75 border border-white/[0.08] backdrop-blur-xl">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-mono uppercase tracking-wider text-slate-300">
-            Slovak Alpinist & Student • Digital Autobiography
+          <span className="text-[10px] sm:text-[11px] font-mono tracking-superwide uppercase text-stoneLight-300">
+            Digital Autobiography • 2026 Archive
           </span>
-          <span className="text-slate-600">|</span>
+          <span className="text-white/20">|</span>
           <button
             onClick={onOpenIntegrity}
-            className="text-xs text-emerald-400 hover:text-emerald-300 underline font-medium"
+            className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-goldAccent hover:text-white transition-colors"
           >
             Fact Standard
           </button>
         </div>
+      </div>
 
-        {/* Name Title */}
-        <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-4 leading-none">
+      {/* Main Center Typographic Composition */}
+      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center my-auto py-8">
+        <span className="text-xs sm:text-sm font-mono uppercase tracking-superwide text-stoneLight-400 mb-3 block">
+          Alpinist • Student • Track Athlete
+        </span>
+
+        {/* Giant Monolithic Title */}
+        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white mb-6 uppercase leading-none">
           {SITE_METADATA.name}
         </h1>
 
-        <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-sans mb-5 font-medium">
-          Also published as <span className="text-slate-200">{SITE_METADATA.alternativeName}</span> • Bratislava, Slovakia
-        </p>
-
-        {/* Tagline */}
-        <p className="font-editorial italic text-xl sm:text-2xl md:text-3xl text-emerald-200/90 font-light max-w-3xl mx-auto mb-6 leading-relaxed">
+        {/* Subtitle / Tagline */}
+        <p className="font-editorial italic text-xl sm:text-2xl md:text-3xl text-stoneLight-100 font-light max-w-2xl mx-auto mb-6 leading-relaxed">
           “{SITE_METADATA.tagline}”
         </p>
 
-        {/* Narrative Intro */}
-        <p className="text-slate-300 text-base sm:text-lg md:text-xl font-normal max-w-3xl mx-auto leading-relaxed mb-10 text-balance">
+        {/* Polished Narrative Statement */}
+        <p className="text-stoneLight-300 text-sm sm:text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-10 text-balance">
           {SITE_METADATA.intro}
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-14">
+        {/* Minimalist Dual CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <a
-            href="#my-story"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-medium text-sm tracking-wide transition-all duration-200 shadow-lg shadow-emerald-900/30 hover:scale-[1.02]"
+            href="#story"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-carbon-950 font-display font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:bg-stoneLight-200 hover:scale-[1.02] shadow-xl"
           >
-            <Compass className="w-4 h-4" />
             <span>Explore My Story</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
 
           <a
             href="#contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm tracking-wide border border-slate-700 backdrop-blur-md transition-all duration-200 hover:scale-[1.02]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-carbon-900/80 hover:bg-carbon-850 text-white font-display font-semibold text-xs tracking-wider uppercase border border-white/10 backdrop-blur-xl transition-all duration-300 hover:scale-[1.02]"
           >
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-3.5 h-3.5 text-goldAccent" />
             <span>Get to Know Me</span>
           </a>
         </div>
+      </div>
 
-        {/* Highlights Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl text-left">
-          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-            <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
-              Mont Blanc Peak
+      {/* Bottom Editorial Stats & Attribution Bar */}
+      <div className="relative z-10 max-w-6xl mx-auto w-full pt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="p-4 rounded-2xl glass-panel group hover:border-white/20 transition-all">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-stoneLight-400 block mb-1">
+              Mont Blanc Ascent
             </span>
-            <span className="font-serif text-lg sm:text-xl font-bold text-white block">
+            <span className="font-display text-2xl sm:text-3xl font-bold text-white block tracking-tight">
               4,806 m
             </span>
-            <span className="text-xs text-emerald-400/90">Ski ascent at age 14</span>
+            <span className="text-xs text-stoneLight-300">Ski descent at age 14</span>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-            <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+          <div className="p-4 rounded-2xl glass-panel group hover:border-white/20 transition-all">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-stoneLight-400 block mb-1">
               Tour du Mont Blanc
             </span>
-            <span className="font-serif text-lg sm:text-xl font-bold text-white block">
+            <span className="font-display text-2xl sm:text-3xl font-bold text-white block tracking-tight">
               160 km
             </span>
-            <span className="text-xs text-emerald-400/90">6.5 days, independent</span>
+            <span className="text-xs text-stoneLight-300">6.5 days, self-supported</span>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-            <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+          <div className="p-4 rounded-2xl glass-panel group hover:border-white/20 transition-all">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-stoneLight-400 block mb-1">
               Track & Field
             </span>
-            <span className="font-serif text-lg sm:text-xl font-bold text-white block">
+            <span className="font-display text-2xl sm:text-3xl font-bold text-white block tracking-tight">
               200m Sprint
             </span>
-            <span className="text-xs text-emerald-400/90">AO TJ Slávia STU</span>
+            <span className="text-xs text-stoneLight-300">AO TJ Slávia STU Bratislava</span>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-            <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
-              Current Chapter
+          <div className="p-4 rounded-2xl glass-panel group hover:border-white/20 transition-all">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-stoneLight-400 block mb-1">
+              Transatlantic Chapter
             </span>
-            <span className="font-serif text-lg sm:text-xl font-bold text-white block">
-              USA Exchange
+            <span className="font-display text-2xl sm:text-3xl font-bold text-white block tracking-tight">
+              USA 2025–26
             </span>
-            <span className="text-xs text-emerald-400/90">Rotary Youth Exchange</span>
+            <span className="text-xs text-stoneLight-300">Rotary Youth Exchange</span>
           </div>
         </div>
 
-        {/* Illustrative Background Photo Attribution Bar */}
-        <div className="mt-8 pt-4 border-t border-slate-800/60 flex flex-wrap items-center justify-center gap-2 text-[11px] text-slate-400">
-          <span className="inline-flex items-center gap-1 text-slate-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-            Background: <em>{heroCredit.title}</em> (CC BY-SA 3.0 by {heroCredit.creator})
-          </span>
-          <span>•</span>
-          <span className="text-slate-400">Illustrative scenery reference</span>
-          <span>•</span>
+        {/* Minimalist Micro Credit Trigger */}
+        <div className="mt-6 flex items-center justify-between text-[10px] font-mono text-stoneLight-500 uppercase tracking-wider">
           <button
             onClick={onOpenCredits}
-            className="text-emerald-400 hover:underline hover:text-emerald-300"
+            className="hover:text-stoneLight-300 transition-colors"
           >
-            View full credits
+            Illustrative Backdrop: {heroCredit.title} • {heroCredit.creator}
           </button>
+          <a
+            href="#story"
+            className="hidden sm:inline-flex items-center gap-1 hover:text-stoneLight-300 transition-colors"
+          >
+            <span>Scroll to story</span>
+            <ArrowDown className="w-3 h-3" />
+          </a>
         </div>
       </div>
     </section>
