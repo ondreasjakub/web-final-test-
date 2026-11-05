@@ -114,11 +114,17 @@ CONTACT_EMAIL=your.email@example.com
 - **Honeypot Anti-Spam**: A hidden `website` input field traps automated spam bots silently.
 - **Rate Limiting**: Built-in in-memory rate limiting prevents abuse (max 4 requests per minute per IP).
 
-### Cloudflare Pages / Vercel Deployment
-- In the Cloudflare Pages dashboard or Vercel dashboard:
-  1. Go to **Settings** ➔ **Environment Variables**.
-  2. Add `RESEND_API_KEY` (as an encrypted Secret).
-  3. Add `CONTACT_EMAIL` with your personal email.
+### Cloudflare Pages / Workers Deployment
+This project uses the official `@opennextjs/cloudflare` adapter compatible with Next.js 15.5.29+ and React 19:
+- **Build command**: `npm run build:cloudflare` (or `npx opennextjs-cloudflare build`)
+- **Deploy command**: `npm run deploy` (or `npx wrangler deploy`)
+- **OpenNext configuration**: `open-next.config.ts`
+- **Wrangler configuration**: `wrangler.jsonc`
+
+In the Cloudflare dashboard:
+1. Go to **Settings** ➔ **Environment Variables**.
+2. Add `RESEND_API_KEY` (as an encrypted Secret).
+3. Add `CONTACT_EMAIL` with your personal email.
 
 ---
 
