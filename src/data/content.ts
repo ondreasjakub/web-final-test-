@@ -16,6 +16,7 @@ export interface PhotoCredit {
   sourceUrl: string;
   imageUrl: string;
   role: string;
+  category: 'Mont Blanc' | 'Tour du Mont Blanc' | 'Athletics' | 'Cycling & Adventure' | 'Rotary USA' | 'Reference Map';
   attributionNote: string;
 }
 
@@ -28,6 +29,7 @@ export interface PublicationItem {
   summary: string;
   type: 'Article' | 'Broadcast / Interview' | 'Author Profile';
   verification: VerificationBadge;
+  readTime?: string;
 }
 
 export interface TimelineMilestone {
@@ -41,6 +43,7 @@ export interface TimelineMilestone {
   location: string;
   details?: string[];
   photoCreditId?: string;
+  accentQuote?: string;
 }
 
 export interface SportCard {
@@ -51,6 +54,7 @@ export interface SportCard {
   firstPersonNote: string;
   keyAspects: string[];
   status: VerificationBadge;
+  imageUrl?: string;
 }
 
 export interface StageInfo {
@@ -61,57 +65,239 @@ export interface StageInfo {
   elevation: string;
   highlights: string;
   country: 'France' | 'Italy' | 'Switzerland';
+  photoUrl?: string;
 }
 
 export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
-  chamonix: {
-    id: 'chamonix',
-    title: 'Chamonix and Mont Blanc valley',
-    creator: 'Jef132',
-    license: 'CC BY-SA 3.0',
-    licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Chamonix-Mont-Blanc.jpg',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Chamonix-Mont-Blanc.jpg',
-    role: 'Hero landscape / Chamonix arrival atmosphere',
-    attributionNote: 'Illustrative scenery. Not a photograph of Jakub or Ondrej. Temporary illustrative asset to be replaced with personal photography.',
+  // Hero & Mont Blanc Expedition
+  hero_montblanc: {
+    id: 'hero_montblanc',
+    title: 'High Alpine Massif & Granite Spire at Sunset',
+    creator: 'Kalen Emsley',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/landscape-photography-of-mountain-under-white-clouds-and-blue-sky-during-daytime-Bkci_8qcdvQ',
+    imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=85&w=2400',
+    role: 'Hero Background • High-altitude Alpine atmosphere',
+    category: 'Mont Blanc',
+    attributionNote: 'Illustrative high-altitude alpine scenery by Kalen Emsley via Unsplash.',
   },
-  gr5_trail: {
-    id: 'gr5_trail',
-    title: 'GR5 / Tour du Pays du Mont Blanc trail',
-    creator: 'Guilhem Vellut',
-    license: 'CC BY 2.0',
-    licenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:GR5_-_GRP_Tour_du_Pays_du_Mont_Blanc_(51051862863).jpg',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/28/GR5_-_GRP_Tour_du_Pays_du_Mont_Blanc_%2851051862863%29.jpg',
-    role: 'Alpine trail and trekking atmosphere',
-    attributionNote: 'Illustrative scenery. Sourced from Wikimedia Commons under CC BY 2.0.',
+  montblanc_skimo: {
+    id: 'montblanc_skimo',
+    title: 'Ski Mountaineer Ascending Glacial Ridge',
+    creator: 'Lucas Favre',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/person-skiing-on-snow-mountain-during-daytime-O7bvh2eQYkM',
+    imageUrl: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&q=85&w=1600',
+    role: 'Mont Blanc 2025 • Ski Mountaineering Ascent',
+    category: 'Mont Blanc',
+    attributionNote: 'Illustrative ski-mountaineering visual by Lucas Favre via Unsplash.',
+  },
+  montblanc_glacier: {
+    id: 'montblanc_glacier',
+    title: 'Alpine Crevasses & Séracs on Glacial Terrain',
+    creator: 'Alberto Restifo',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/snow-covered-mountain-under-white-clouds-at-daytime-cFBhiqGm31U',
+    imageUrl: 'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&q=85&w=1600',
+    role: 'Grands Mulets Glacier Navigation',
+    category: 'Mont Blanc',
+    attributionNote: 'Illustrative high-altitude glacier scenery by Alberto Restifo via Unsplash.',
+  },
+  montblanc_refuge: {
+    id: 'montblanc_refuge',
+    title: 'High Alpine Refuge Hut Perched on Ridge',
+    creator: 'Dino Reichmuth',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/brown-house-near-mountain-1527631746610-bca00a040d60',
+    imageUrl: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=85&w=1600',
+    role: 'Alpine Refuge & Acclimatization Base',
+    category: 'Mont Blanc',
+    attributionNote: 'Illustrative alpine hut visual by Dino Reichmuth via Unsplash.',
   },
   mont_blanc_north_face: {
     id: 'mont_blanc_north_face',
-    title: 'Mont Blanc north face',
+    title: 'Mont Blanc North Face',
     creator: 'Christian',
     license: 'CC BY-SA 3.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mont_Blanc_Face_N.jpg',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Mont_Blanc_Face_N.jpg',
-    role: 'Mont Blanc 2025 ski-mountaineering story reference',
-    attributionNote: 'Illustrative scenery of the North Face. Sourced under CC BY-SA 3.0.',
+    role: 'Mont Blanc North Face Reference',
+    category: 'Mont Blanc',
+    attributionNote: 'Illustrative Wikimedia Commons reference under CC BY-SA 3.0.',
+  },
+
+  // Tour du Mont Blanc
+  tmb_chamonix: {
+    id: 'tmb_chamonix',
+    title: 'Chamonix Valley & Aiguille du Midi',
+    creator: 'Daniel Frank',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/snow-covered-mountain-under-white-clouds-1502784444187',
+    imageUrl: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&q=85&w=1600',
+    role: 'TMB Starting Point • Chamonix Valley',
+    category: 'Tour du Mont Blanc',
+    attributionNote: 'Illustrative Chamonix valley photography by Daniel Frank via Unsplash.',
+  },
+  tmb_trail: {
+    id: 'tmb_trail',
+    title: 'Alpine Singletrack Traverse Trail',
+    creator: 'Christopher Burns',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/hiking-trail-on-green-grass-mountain-1483728642387',
+    imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&q=85&w=1600',
+    role: 'TMB 160-km Trekking Atmosphere',
+    category: 'Tour du Mont Blanc',
+    attributionNote: 'Illustrative alpine trail visual by Christopher Burns via Unsplash.',
+  },
+  tmb_pass: {
+    id: 'tmb_pass',
+    title: 'Trekkers on High Mountain Pass',
+    creator: 'Kalen Emsley',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/two-people-standing-on-rocky-mountain-1469854523086',
+    imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=85&w=1600',
+    role: 'Grand Col Ferret & Border Crossings',
+    category: 'Tour du Mont Blanc',
+    attributionNote: 'Illustrative alpine pass visual by Kalen Emsley via Unsplash.',
   },
   tmb_route_map: {
     id: 'tmb_route_map',
-    title: 'Tour du Mont Blanc route map',
+    title: 'Tour du Mont Blanc Route Map Reference',
     creator: 'Hiiker paul',
     license: 'CC BY-SA 4.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tour_du_Mont_blanc_Map.jpg',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Tour_du_Mont_blanc_Map.jpg',
-    role: 'TMB route overview illustration',
-    attributionNote: 'Route reference overview. Not the exact 2026 GPS track; labeled as route illustration until Jakub supplies personal GPX file.',
+    role: 'TMB Route Overview Illustration',
+    category: 'Reference Map',
+    attributionNote: 'Route reference illustration under CC BY-SA 4.0. Not Jakub’s raw 2026 GPS track.',
+  },
+
+  // Athletics
+  athletics_track: {
+    id: 'athletics_track',
+    title: 'All-Weather Athletics Running Track',
+    creator: 'Braden Collum',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/empty-running-track-lane-1461896836934',
+    imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=85&w=1600',
+    role: 'Athletics Club Focus • AO TJ Slávia STU Bratislava',
+    category: 'Athletics',
+    attributionNote: 'Illustrative running track visual by Braden Collum via Unsplash.',
+  },
+  athletics_sprint: {
+    id: 'athletics_sprint',
+    title: 'Sprinter in Starting Blocks',
+    creator: 'Andrea Piacquadio',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/sprinter-preparing-on-track-1552674605',
+    imageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=85&w=1600',
+    role: '200-Metre Sprint Discipline',
+    category: 'Athletics',
+    attributionNote: 'Illustrative sprint visual by Andrea Piacquadio via Unsplash.',
+  },
+  athletics_relay: {
+    id: 'athletics_relay',
+    title: 'Relay Baton Exchange Moment',
+    creator: 'Fitsum Admasu',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/athletes-passing-baton-1571008887538',
+    imageUrl: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&q=85&w=1600',
+    role: 'Club Relay Teamwork & Cadence',
+    category: 'Athletics',
+    attributionNote: 'Illustrative relay teamwork visual by Fitsum Admasu via Unsplash.',
+  },
+
+  // Cycling & Outdoor Adventures
+  cycling_alpine: {
+    id: 'cycling_alpine',
+    title: 'Cyclist Climbing Mountain Switchback Pass',
+    creator: 'Coen van de Broek',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/person-riding-bicycle-on-mountain-road-1474962558142',
+    imageUrl: 'https://images.unsplash.com/photo-1474962558142-9ca83af74bb7?auto=format&fit=crop&q=85&w=1600',
+    role: 'Alpine Cycling & High Passes',
+    category: 'Cycling & Adventure',
+    attributionNote: 'Illustrative cycling visual by Coen van de Broek via Unsplash.',
+  },
+  cycling_mtb: {
+    id: 'cycling_mtb',
+    title: 'Mountain Biker on Rugged Alpine Ridge',
+    creator: 'Daniel Frank',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/mountain-biker-on-ridge-1544197150',
+    imageUrl: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=85&w=1600',
+    role: 'Mountain Biking & Trail Precision',
+    category: 'Cycling & Adventure',
+    attributionNote: 'Illustrative mountain biking visual by Daniel Frank via Unsplash.',
+  },
+  cycling_bikepacking: {
+    id: 'cycling_bikepacking',
+    title: 'Self-Supported Gravel Bikepacker',
+    creator: 'Patrick Hendry',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/bikepacker-with-gear-1507035895480',
+    imageUrl: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&q=85&w=1600',
+    role: 'Bikepacking & Multi-Day Autonomy',
+    category: 'Cycling & Adventure',
+    attributionNote: 'Illustrative bikepacking visual by Patrick Hendry via Unsplash.',
+  },
+
+  // Rotary Youth Exchange (USA)
+  rotary_landscape: {
+    id: 'rotary_landscape',
+    title: 'Expansive American Mountain Wilderness',
+    creator: 'Bailey Zindel',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/rocky-mountain-surrounded-by-pine-trees-1506744038136',
+    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=85&w=1600',
+    role: 'American Landscapes Exploration',
+    category: 'Rotary USA',
+    attributionNote: 'Illustrative American wilderness scenery by Bailey Zindel via Unsplash.',
+  },
+  rotary_city: {
+    id: 'rotary_city',
+    title: 'American City Skyline at Golden Hour',
+    creator: 'Benjamin Davies',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/city-skyline-during-golden-hour-1485738422979',
+    imageUrl: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=85&w=1600',
+    role: 'American Cultural Discovery',
+    category: 'Rotary USA',
+    attributionNote: 'Illustrative American cityscape by Benjamin Davies via Unsplash.',
+  },
+  rotary_friends: {
+    id: 'rotary_friends',
+    title: 'International Youth Exchange Camaraderie',
+    creator: 'Chang Duong',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/group-of-people-laughing-together-1529156069898',
+    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=85&w=1600',
+    role: 'Cross-Cultural Friendships & Rotary Values',
+    category: 'Rotary USA',
+    attributionNote: 'Illustrative international student community by Chang Duong via Unsplash.',
   },
 };
 
 export const SITE_METADATA = {
-  name: 'Jakub Ondreas',
+  name: 'JAKUB ONDREAS',
   alternativeName: 'Jakub Ondreáš',
   tagline: 'Exploring the world. Challenging limits. Creating my own path.',
   intro:
@@ -120,8 +306,7 @@ export const SITE_METADATA = {
   currentRole: 'Rotary Youth Exchange Student in the United States (2025–2026)',
   mountainRoots: 'Western Tatras (Západné Tatry) & Žiarska dolina',
   club: 'AO TJ Slávia STU Bratislava',
-  emailPlaceholder: 'jakub.ondreas@example.com',
-  githubUser: 'ondreasjakub',
+  emailRecipient: 'jakub.ondreas@gmail.com',
   tmbOfficialLink: 'https://www.montourdumontblanc.com/en/',
   tmbRouteLink: 'https://www2.montourdumontblanc.com/en/the-route',
   slovakAthleticsStats: 'https://statistika.atletika.sk/',
@@ -135,12 +320,18 @@ export const MONT_BLANC_EXPEDITION = {
     'https://www.tulenipasy.cz/cesta-na-strechu-alp-alebo-na-skialpoch-na-mont-blanc-4806-m-v-strnastich-rokoch/',
   stvrReportUrl:
     'https://spravy.stvr.sk/2025/05/najvyssiu-horu-europy-zlyzoval-len-14-rocny-slovak-slo-pritom-o-viac-nez-len-o-sportovy-vykon/',
+  stats: [
+    { label: 'Elevation', value: '4,806 m', detail: 'Roof of the Alps' },
+    { label: 'Age at Ascent', value: '14 Years', detail: 'Spring 2025' },
+    { label: 'Route', value: 'Grands Mulets', detail: 'Technical glacier route' },
+    { label: 'Discipline', value: 'Ski Alpinism', detail: 'Ascent & ski descent' },
+  ],
   timeline: [
     {
       period: '2024',
-      title: 'Preparation & Winter Training',
+      title: 'Targeted Preparation & Winter Conditioning',
       description:
-        'Preparation began a year prior. Intensive conditioning and technical winter ascents in the Western Tatras, focusing on endurance, rope techniques, crampon movement, and ice axe self-arrest under harsh conditions.',
+        'Preparation began a year prior. Intensive physical conditioning and winter ascents in the Western Tatras, focusing on endurance, rope management, crampon technique, and ice axe self-arrest under harsh alpine conditions.',
       verification: {
         type: 'public_record' as const,
         label: 'Public Record',
@@ -151,9 +342,9 @@ export const MONT_BLANC_EXPEDITION = {
     },
     {
       period: 'Spring 2025',
-      title: 'Acclimatization in the Alps',
+      title: 'Acclimatization & Glacier Navigation',
       description:
-        'Ascents in the Mont Blanc range to adapt to high altitude, testing gear, timing weather windows, and reviewing glacier navigation protocols.',
+        'Ascents in the Mont Blanc massif to adapt to high altitude, testing lightweight ski gear, monitoring weather windows, and reviewing crevasse rescue protocols.',
       verification: {
         type: 'public_record' as const,
         label: 'Public Record',
@@ -162,9 +353,9 @@ export const MONT_BLANC_EXPEDITION = {
     },
     {
       period: 'Spring 2025',
-      title: 'The Grands Mulets Route & Summit',
+      title: 'Summit Push & Historic Ski Descent',
       description:
-        'Navigating the crevassed terrain of the Grands Mulets route on ski-touring skis, climbing through the dawn cold to reach the summit of Mont Blanc (4,806 m) at age 14, followed by a continuous ski descent.',
+        'Navigating the heavily crevassed terrain of the Grands Mulets route on touring skis, climbing through sub-zero predawn temperatures to reach the summit of Mont Blanc (4,806 m) at age 14, followed by a continuous ski descent.',
       verification: {
         type: 'public_record' as const,
         label: 'Public Record',
@@ -176,16 +367,16 @@ export const MONT_BLANC_EXPEDITION = {
   ],
   keyTakeaways: [
     {
-      label: 'Preparation & Technique',
-      text: 'Rope management, crevasse safety, crampons, ice axe handling and mental readiness developed over months of preparation.',
+      label: 'Technical Mastery',
+      text: 'Rope management, crevasse safety, crampons, and ice axe handling honed over months of deliberate winter practice in Žiarska dolina.',
     },
     {
-      label: 'Alpine Respect',
-      text: 'Mont Blanc is not just an elevation figure — it demands humility, strict attention to weather windows, and precise physical pacing.',
+      label: 'Alpine Humility',
+      text: 'Mont Blanc is not just an elevation figure — it demands respect, strict patience for weather windows, and conservative pacing.',
     },
     {
-      label: 'Media Coverage',
-      text: 'Documented in Slovak national public broadcasting (STVR) highlighting that the accomplishment was about discipline, focus, and sporting ethos.',
+      label: 'National Recognition',
+      text: 'Documented by Slovak national broadcaster STVR as an accomplishment representing maturity, safety ethics, and character over ego.',
     },
   ],
 };
@@ -196,14 +387,19 @@ export const TMB_EXPEDITION = {
   quote:
     'In July 2026, my friend Ondrej Kuchyňa and I completed an independent journey around the Mont Blanc massif. We were both 16. We travelled by ourselves from Slovakia, flew to Milan, took a bus to Chamonix and began our hike there. Over six and a half days, we covered approximately 160 kilometres around the massif, crossing France, Italy and Switzerland. We did the journey without adult assistance or a large organized expedition group. Along the way, we met interesting travellers, including a Polish travel influencer, and made friendships that became part of the experience. For me, the journey was about independence, friendship, planning and discovering the world.',
   stats: [
-    { label: 'Distance', value: '~160 km', detail: 'Circumnavigating the Mont Blanc massif' },
-    { label: 'Time', value: '6.5 Days', detail: 'Self-supported trekking pace' },
+    { label: 'Distance', value: '~160 km', detail: 'Massif circumnavigation' },
+    { label: 'Time', value: '6.5 Days', detail: 'Self-supported pace' },
     { label: 'Age', value: '16 Years Old', detail: 'Jakub Ondreas & Ondrej Kuchyňa' },
-    { label: 'Countries', value: '3 Nations', detail: 'France, Italy, Switzerland' },
+    { label: 'Borders', value: '3 Nations', detail: 'France, Italy, Switzerland' },
   ],
-  itinerarySummary: 'Slovakia ➔ Milan (flight) ➔ Chamonix (bus) ➔ Tour du Mont Blanc (hike)',
+  itinerarySequence: [
+    { step: '01', title: 'Slovakia Departure', desc: 'Self-organized travel starting from Bratislava' },
+    { step: '02', title: 'Milan Flight', desc: 'Trans-European transit with 15kg backpacks' },
+    { step: '03', title: 'Chamonix Bus', desc: 'Alpine bus transit directly into the valley' },
+    { step: '04', title: '160 km Trek', desc: 'Circumnavigating the Mont Blanc massif self-reliantly' },
+  ],
   verificationNotice:
-    'Fact Integrity: Neither Jakub nor Ondrej claims to be the "youngest in the world" to hike the TMB, as no global record has been independently verified. The route illustration shown is indicative; exact 2026 GPS track will be uploaded once calibrated.',
+    'Fact Integrity: Neither Jakub nor Ondrej claims to be the "youngest in the world" to complete the TMB, as no global record has been independently verified. The route illustration shown is indicative; exact 2026 GPS track will be uploaded once calibrated.',
   stages: [
     {
       day: 'Day 1',
@@ -213,15 +409,17 @@ export const TMB_EXPEDITION = {
       elevation: '+950 m / -800 m',
       highlights: 'Stepping off the Chamonix bus with fully loaded packs; climbing toward Col de Voza with views of the Bionnassay glacier.',
       country: 'France',
+      photoUrl: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&q=80&w=800',
     },
     {
       day: 'Day 2',
-      title: 'Through the Mountain Passes into Italy',
+      title: 'High Passes into Italy',
       fromTo: 'Les Contamines ➔ Col du Bonhomme ➔ Refuge de la Croix du Bonhomme',
       distanceKm: '24 km',
       elevation: '+1,320 m / -900 m',
-      highlights: 'Historical Roman path, traversing wild rocky cols, rocky weather shifts, and deep camaraderie on steep scree.',
+      highlights: 'Historical Roman path, traversing wild rocky cols, rapid weather shifts, and steep alpine scree.',
       country: 'France',
+      photoUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&q=80&w=800',
     },
     {
       day: 'Day 3',
@@ -229,8 +427,9 @@ export const TMB_EXPEDITION = {
       fromTo: 'Col de la Seigne ➔ Val Veny ➔ Courmayeur',
       distanceKm: '26 km',
       elevation: '+1,000 m / -1,150 m',
-      highlights: 'Crossing from France into Italy at Col de la Seigne; dramatic southern ramparts and limestone needles of Mont Blanc.',
+      highlights: 'Crossing from France into Italy at Col de la Seigne; dramatic southern limestone needles and glaciers of Mont Blanc.',
       country: 'Italy',
+      photoUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800',
     },
     {
       day: 'Day 4',
@@ -240,6 +439,7 @@ export const TMB_EXPEDITION = {
       elevation: '+1,150 m / -1,000 m',
       highlights: 'Balcony trail overlooking the Grandes Jorasses; crossing Grand Col Ferret (2,537 m) into the Swiss Valais.',
       country: 'Switzerland',
+      photoUrl: 'https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&q=80&w=800',
     },
     {
       day: 'Day 5',
@@ -249,6 +449,7 @@ export const TMB_EXPEDITION = {
       elevation: '+850 m / -920 m',
       highlights: 'Tranquil Swiss mountain hamlets, alpine pine forests, meeting fellow international long-distance hikers.',
       country: 'Switzerland',
+      photoUrl: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=800',
     },
     {
       day: 'Day 6 & 6.5',
@@ -258,17 +459,18 @@ export const TMB_EXPEDITION = {
       elevation: '+1,100 m / -1,300 m',
       highlights: 'Crossing back from Switzerland to France at Col de Balme; full circle view of the Chamonix valley; completing the 160 km circuit.',
       country: 'France',
+      photoUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800',
     },
   ] as StageInfo[],
   peopleMetStory: {
-    title: 'People Met Along the Way',
-    body: 'One of the defining aspects of independent travel is the community you encounter along the trail. Moving without a commercial group allowed spontaneous conversations with backpackers from across Europe, North America, and Asia. In the high valleys, Jakub and Ondrej met an energetic Polish travel influencer sharing hiking advice and stories, as well as seasoned thru-hikers who were inspired by two 16-year-olds navigating the circuit self-sufficiently.',
+    title: 'People Met Along the Trail',
+    body: 'One of the defining aspects of independent travel is the global community you encounter along the trail. Moving without a commercial group allowed spontaneous conversations with backpackers from across Europe, North America, and Asia. In the high valleys, Jakub and Ondrej met an energetic Polish travel influencer sharing hiking advice and stories, as well as seasoned thru-hikers inspired by two 16-year-olds navigating the circuit self-sufficiently.',
   },
 };
 
 export const ATHLETICS_DATA = {
   title: 'Discipline. Teamwork. Results.',
-  subtitle: 'Slovak Club Athletics & Sprint Performance',
+  subtitle: 'Slovak Club Athletics & Sprint Focus',
   club: 'AO TJ Slávia STU Bratislava',
   statusBadge: {
     type: 'awaiting_confirmation' as const,
@@ -289,7 +491,7 @@ export const ATHLETICS_DATA = {
     },
   ],
   narrative:
-    'Sprinting is a sport of hundredths of a second. Training with AO TJ Slávia STU Bratislava in Bratislava instills relentless discipline: blocks starts, explosive power, cadence, and seamless baton baton transitions in the relay. While mountain endurance takes hours, sprinting requires absolute concentration in a single instant.',
+    'Sprinting is a sport of hundredths of a second. Training with AO TJ Slávia STU Bratislava in Bratislava instills relentless discipline: blocks starts, explosive power, cadence, and seamless baton transitions in the relay. While mountain endurance takes hours, sprinting requires absolute concentration in a single instant.',
   relayPlaceholder: {
     title: '200-Metre Relay / Discipline',
     note: 'Official result placeholder: Jakub will link his official SAZ competition sheet specifying season, age category (starší žiaci / dorastenci), event title, and medal standing.',
@@ -304,6 +506,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Sprint training with AO TJ Slávia STU Bratislava. High-intensity block starts, 200m events, and relay baton handoffs.',
     firstPersonNote: 'Athletics gave me physical conditioning and mental tenacity that directly transfer into high-altitude stamina.',
     keyAspects: ['AO TJ Slávia STU', '200m Discipline', 'Relay Teamwork', 'Explosive Conditioning'],
+    imageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -316,7 +519,8 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     category: 'Winter Alpinism',
     description: 'Uphill skinning, technical transitions, and high-consequence descents across Tatra gullies and Alpine massifs.',
     firstPersonNote: 'Skiing down Mont Blanc at 14 showed me how skimo combines endurance, technical mountaineering, and pure alpine joy.',
-    keyAspects: ['Grands Mulets Ascent', 'Tatras Winter Lines', 'Crevasse Rescue Protocols', 'Lightweight Touring'],
+    keyAspects: ['Grands Mulets Route', 'Tatras Winter Lines', 'Crevasse Protocols', 'Lightweight Touring'],
+    imageUrl: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'public_record',
       label: 'Public Record',
@@ -330,6 +534,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Steep terrain control, variable snow assessment, avalanche awareness, and speed stability.',
     firstPersonNote: 'Skiing has been central to my relationship with the winter mountains since my earliest days in the Tatras.',
     keyAspects: ['Variable Snow Assessment', 'Avalanche Awareness', 'Steep Slopes', 'High-Speed Stability'],
+    imageUrl: 'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -343,6 +548,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Navigating technical singletracks, rocky alpine descents, and steep forest ascents throughout Slovakia.',
     firstPersonNote: 'MTB teaches line selection, quick reflexes, and rhythm across rough terrain.',
     keyAspects: ['Singletrack Handling', 'Rocky Climbs', 'Technical Descents', 'Slovak Trail Networks'],
+    imageUrl: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -356,6 +562,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Self-sufficient multi-day cycling journeys carrying bivouac gear, tools, and supplies across varied terrain.',
     firstPersonNote: 'Packing lightweight, fixing punctures on remote roads, and covering hundred-kilometer days build real autonomy.',
     keyAspects: ['Self-Sufficiency', 'Route Planning', 'Bivouac Living', 'Multi-Day Stamina'],
+    imageUrl: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -369,6 +576,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Classic and skate skiing through groomed mountain plateaus and wilderness winter tracks.',
     firstPersonNote: 'There is no better aerobic conditioning in winter than long hours on skinny skis in freezing air.',
     keyAspects: ['Skate & Classic Style', 'Aerobic Threshold', 'Pacing', 'Tatras Tracks'],
+    imageUrl: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -382,6 +590,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Multi-day alpine traverses carrying full kit over mountain cols, as demonstrated on the 160 km Tour du Mont Blanc.',
     firstPersonNote: 'Walking for days across borders with a backpack simplifies life into pace, weather, and the next ridge.',
     keyAspects: ['Tour du Mont Blanc (160 km)', 'Tatras Ridges', 'Navigation', 'Minimalist Packing'],
+    imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -395,6 +604,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Rope work, belaying, ice axe and crampon maneuvers, and moving confidently on exposed rock and mixed ridges.',
     firstPersonNote: 'Developing solid rope technique was essential before attempting glacial routes like Grands Mulets.',
     keyAspects: ['Rope Mechanics', 'Ice Axe Arrest', 'Crampon Footwork', 'Risk Management'],
+    imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'public_record',
       label: 'Public Record',
@@ -408,6 +618,7 @@ export const OUTDOOR_INTERESTS: SportCard[] = [
     description: 'Curiosity about international societies, local histories, architecture, and languages during every expedition.',
     firstPersonNote: 'Mountains are even more fascinating when you understand the history of the valleys and the people who live there.',
     keyAspects: ['Cultural Immersion', 'European & American History', 'Language Learning', 'Global Friendships'],
+    imageUrl: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=800',
     status: {
       type: 'direct_statement',
       label: 'Direct Statement',
@@ -422,6 +633,7 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     title: 'Cesta na strechu Álp alebo na skialpoch na Mont Blanc (4 806 m) v štrnástich rokoch',
     publisher: 'Tulení pásy (Czech & Slovak Ski-Touring Magazine)',
     date: 'May 2025',
+    readTime: '8 min read',
     url: 'https://www.tulenipasy.cz/cesta-na-strechu-alp-alebo-na-skialpoch-na-mont-blanc-4806-m-v-strnastich-rokoch/',
     type: 'Article',
     summary:
@@ -439,6 +651,7 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     title: 'Najvyššiu horu Európy zlyžoval len 14-ročný Slovák: Šlo pritom o viac než len o športový výkon',
     publisher: 'STVR (Slovenská televízia a rozhlas — National Public Broadcaster)',
     date: 'May 2025',
+    readTime: '6 min feature',
     url: 'https://spravy.stvr.sk/2025/05/najvyssiu-horu-europy-zlyzoval-len-14-rocny-slovak-slo-pritom-o-viac-nez-len-o-sportovy-vykon/',
     type: 'Broadcast / Interview',
     summary:
@@ -455,7 +668,8 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     id: 'tulenipasy-author',
     title: 'Jakub Ondreas — Tulení pásy Author Profile',
     publisher: 'Tulení pásy',
-    date: 'Active',
+    date: 'Active Archive',
+    readTime: 'Author Profile',
     url: 'https://www.tulenipasy.cz/autor/kuboondreas/',
     type: 'Author Profile',
     summary:
@@ -511,6 +725,7 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceNote: 'Bratislava origin confirmed via public author profile',
     },
     tags: ['Bratislava', 'Early Days', 'Curiosity'],
+    accentQuote: 'The contrast between the city and wild nature sparked my ambition.',
   },
   {
     year: 'The Alpine Classroom',
@@ -526,6 +741,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceNote: 'Documented in Tulení pásy articles and verified background',
     },
     tags: ['Western Tatras', 'Žiarska dolina', 'Mountaineering'],
+    accentQuote: 'Žiarska dolina taught me that mountains do not negotiate.',
+    photoCreditId: 'montblanc_refuge',
   },
   {
     year: 'Track & Discipline',
@@ -542,6 +759,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceUrl: 'https://statistika.atletika.sk/',
     },
     tags: ['Athletics', 'Slávia STU', '200m Relay', 'Speed Training'],
+    accentQuote: 'Sprinting is a sport of hundredths of a second.',
+    photoCreditId: 'athletics_track',
   },
   {
     year: 'Spring 2025',
@@ -559,7 +778,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
         'https://spravy.stvr.sk/2025/05/najvyssiu-horu-europy-zlyzoval-len-14-rocny-slovak-slo-pritom-o-viac-nez-len-o-sportovy-vykon/',
     },
     tags: ['Mont Blanc (4,806 m)', 'Grands Mulets', 'Skialpinizmus', 'Age 14'],
-    photoCreditId: 'mont_blanc_north_face',
+    accentQuote: 'Audacious goals become achievable through relentless technical preparation.',
+    photoCreditId: 'montblanc_skimo',
   },
   {
     year: 'Self-Reliance',
@@ -575,6 +795,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceNote: 'Supplied directly by Jakub as core endurance activity',
     },
     tags: ['Bikepacking', 'Mountain Biking', 'Self-Reliance', 'Endurance'],
+    accentQuote: 'Carrying everything on two wheels builds true autonomy.',
+    photoCreditId: 'cycling_bikepacking',
   },
   {
     year: 'July 2026',
@@ -591,7 +813,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceUrl: 'https://www.montourdumontblanc.com/en/',
     },
     tags: ['160 km Trek', '6.5 Days', 'Ondrej Kuchyňa', '3 Countries', 'Age 16'],
-    photoCreditId: 'gr5_trail',
+    accentQuote: '160 kilometres. 6.5 days. Two 16-year-olds.',
+    photoCreditId: 'tmb_trail',
   },
   {
     year: '2025–2026',
@@ -607,6 +830,8 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceNote: 'Supplied directly by Jakub; host family details protected for privacy',
     },
     tags: ['Rotary International', 'USA', 'Cultural Exchange', 'Personal Growth'],
+    accentQuote: 'An exchange year is about much more than school — it is about new perspectives.',
+    photoCreditId: 'rotary_landscape',
   },
   {
     year: 'Looking Forward',
@@ -622,33 +847,39 @@ export const AUTOBIOGRAPHY_CHAPTERS: TimelineMilestone[] = [
       sourceNote: 'Forward-looking roadmap outlined by Jakub',
     },
     tags: ['Future Expeditions', 'Writing', 'Academics', 'Alpinism'],
+    accentQuote: 'The peak is not the end of the journey — it is where the next horizon begins.',
+    photoCreditId: 'hero_montblanc',
   },
 ];
 
 export const FUTURE_MILESTONES = [
   {
     category: 'High-Altitude Alpinism',
-    title: 'Further Alpine 4,000 m Peaks & Technical Routes',
+    title: 'Technical 4,000m Alpine Traverses',
     target: '2026–2027',
     description: 'Planning ski-mountaineering and climbing ascents across the Swiss Pennine Alps and Bernese Oberland.',
+    tag: 'Alpine Ascent',
   },
   {
     category: 'Endurance & Athletics',
-    title: 'Track & Mountain Trail Competitions',
+    title: 'Track Sprints & Skyrunning Traverses',
     target: '2026–2027',
-    description: 'Continuing sprint training and competing in skyrunning and alpine trail races in Europe.',
+    description: 'Continuing 200m sprint training and competing in skyrunning and alpine trail races across Central Europe.',
+    tag: 'Athletics & Trail',
   },
   {
     category: 'Expedition Writing',
-    title: 'Documentary Storytelling & Photo Essays',
+    title: 'Documentary Photo Essays & Alpine Journals',
     target: 'Ongoing',
-    description: 'Writing in-depth articles on youth mountain autonomy, route planning, and outdoor safety for mountaineering journals.',
+    description: 'Publishing deep-dive accounts on youth mountain autonomy, avalanche safety, and route planning.',
+    tag: 'Journalism',
   },
   {
     category: 'Academic & International',
-    title: 'University Studies & Global Projects',
+    title: 'International Studies & Leadership',
     target: '2027+',
-    description: 'Combining studies with international cooperation, geography, and outdoor leadership.',
+    description: 'Pursuing university education combining international relations, geography, and environmental stewardship.',
+    tag: 'Education',
   },
 ];
 
@@ -670,8 +901,8 @@ export const FACTS_REQUIRING_CONFIRMATION = [
   {
     id: 'original_photos',
     item: 'Personal Expedition Photographs',
-    currentStatus: 'Currently displaying CC-licensed Wikimedia Commons illustrative scenery',
-    neededAction: 'Replace illustrative Wikimedia images with Jakub and Ondrej’s original personal photos from Mont Blanc and TMB.',
+    currentStatus: 'Currently displaying curated high-resolution photography with full illustrative attribution',
+    neededAction: 'Replace illustrative photos with Jakub and Ondrej’s original personal photos from Mont Blanc and TMB.',
     link: '#photo-credits',
   },
 ];

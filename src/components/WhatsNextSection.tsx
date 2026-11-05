@@ -2,60 +2,66 @@
 
 import React from 'react';
 import { FUTURE_MILESTONES } from '@/data/content';
-import { Compass, ArrowRight, Target, Sparkles } from 'lucide-react';
+import { Compass, ArrowRight, Target, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function WhatsNextSection() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0E1216] border-t border-slate-800">
+    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-carbon-900 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <Compass className="w-4 h-4 text-emerald-400" />
-            <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold">
-              Future Horizons
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <div>
+            <span className="text-[10px] font-mono tracking-superwide uppercase text-goldAccent block mb-3 font-semibold">
+              Chapter 07 // Forward Horizons
             </span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
+              What Comes Next?
+            </h2>
           </div>
-          <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
-            What Comes Next?
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400">
-            Upcoming alpine ambitions, endurance races, documentary writing, and academic pathways.
+          <p className="text-sm text-stoneLight-400 max-w-sm font-normal leading-relaxed">
+            Upcoming alpine ambitions, endurance races, documentary writing, and academic pathways across the globe.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Milestone Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {FUTURE_MILESTONES.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-[#161B21] border border-slate-800 hover:border-slate-700 transition-all duration-200 group"
+              className="p-8 rounded-3xl bg-carbon-850 border border-white/[0.08] hover:border-white/[0.2] transition-all duration-500 group"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-emerald-400 font-mono">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-mono uppercase tracking-widest font-semibold text-goldAccent">
                   {item.category}
                 </span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+                <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-stoneLight-300">
                   {item.target}
                 </span>
               </div>
 
-              <h3 className="font-editorial text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
+              <h3 className="font-display text-2xl font-bold text-white mb-3 group-hover:text-goldAccent transition-colors">
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              <p className="text-xs sm:text-sm text-stoneLight-300 leading-relaxed font-normal">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-          <p className="text-xs text-slate-400">
-            Looking to propose an expedition, athletic collaboration, or media interview?{' '}
-            <a href="#contact" className="text-emerald-400 hover:underline font-medium">
-              Get in touch below
-            </a>.
+        {/* Minimalist Contact Callout */}
+        <div className="p-8 rounded-3xl glass-panel text-center max-w-3xl mx-auto">
+          <p className="text-sm text-stoneLight-300 font-normal mb-4">
+            Looking to propose an expedition, athletic collaboration, or media interview?
           </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-carbon-950 font-display font-semibold text-xs tracking-wider uppercase transition-all hover:bg-stoneLight-200"
+          >
+            <span>Initiate a Conversation</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { VerificationBadge } from '@/data/content';
-import { CheckCircle2, UserCheck, AlertCircle } from 'lucide-react';
+import { ShieldCheck, UserCheck, Clock } from 'lucide-react';
 
 interface Props {
   badge: VerificationBadge;
@@ -15,28 +15,30 @@ export default function VerificationPill({ badge, size = 'sm', showDetails = fal
   const isDirect = badge.type === 'direct_statement';
   const isPending = badge.type === 'awaiting_confirmation';
 
-  const baseStyles = size === 'sm' ? 'text-xs px-2.5 py-0.5' : 'text-sm px-3 py-1';
+  const baseStyles = size === 'sm' ? 'text-[10px] px-2.5 py-0.5' : 'text-xs px-3 py-1';
 
   return (
     <div className="inline-flex flex-col gap-1">
       <div
-        className={`inline-flex items-center gap-1.5 font-medium rounded-full border transition-all ${baseStyles} ${
+        className={`inline-flex items-center gap-1.5 font-mono uppercase tracking-wider font-medium rounded-full border transition-all ${baseStyles} ${
           isPublic
-            ? 'bg-emerald-950/50 text-emerald-300 border-emerald-500/30'
+            ? 'bg-alpine-950/60 text-emerald-300 border-emerald-500/25'
             : isDirect
-            ? 'bg-sky-950/50 text-sky-300 border-sky-500/30'
-            : 'bg-amber-950/50 text-amber-300 border-amber-500/30'
+            ? 'bg-carbon-800/80 text-stoneLight-200 border-white/10'
+            : 'bg-amber-950/40 text-amber-300 border-amber-500/30'
         }`}
         title={badge.sourceNote}
       >
-        {isPublic && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />}
-        {isDirect && <UserCheck className="w-3.5 h-3.5 text-sky-400" />}
-        {isPending && <AlertCircle className="w-3.5 h-3.5 text-amber-400" />}
+        <span
+          className={`w-1.5 h-1.5 rounded-full ${
+            isPublic ? 'bg-emerald-400' : isDirect ? 'bg-sky-400' : 'bg-amber-400'
+          }`}
+        />
         <span>{badge.label}</span>
       </div>
 
       {showDetails && (
-        <span className="text-[11px] text-zinc-400 leading-tight">
+        <span className="text-[11px] text-stoneLight-400 leading-tight">
           {badge.sourceNote}
         </span>
       )}

@@ -20,53 +20,53 @@ export default function Home() {
   const [showCreditsModal, setShowCreditsModal] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#0E1216] text-[#E6EBE7]">
-      {/* Top Navigation */}
+    <div className="relative min-h-screen bg-carbon-950 text-[#E5E7EB] selection:bg-alpine-600 selection:text-white">
+      {/* Top Floating Glass Navigation */}
       <Navbar
         onOpenIntegrity={() => setShowIntegrityModal(true)}
         onOpenCredits={() => setShowCreditsModal(true)}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Editorial Content Sequence */}
       <main>
-        {/* Section 2: Hero */}
+        {/* Full-Screen Hero */}
         <HeroSection
           onOpenCredits={() => setShowCreditsModal(true)}
           onOpenIntegrity={() => setShowIntegrityModal(true)}
         />
 
-        {/* Section 3: About Me */}
+        {/* Chapter 01: My Story & Mountain Roots */}
         <AboutSection />
 
-        {/* Section 10: Full Autobiography Timeline (8 Chapters) */}
+        {/* Chapter 02: 8-Part Chronological Autobiography Timeline */}
         <AutobiographyTimeline />
 
-        {/* Sections 4 & 5: Expeditions (Mont Blanc 2025 & Tour du Mont Blanc 2026) */}
+        {/* Chapter 03: Mont Blanc 2025 & Tour du Mont Blanc 2026 Expeditions */}
         <ExpeditionsSection />
 
-        {/* Sections 6 & 7: Sports & Athletics */}
+        {/* Chapter 04: Athletics with Slávia STU & 9 Outdoor Disciplines */}
         <SportsSection />
 
-        {/* Section 8: Publications and Media */}
+        {/* Chapter 05: Stories, Articles & National Media (STVR / Tulení pásy) */}
         <PublicationsSection />
 
-        {/* Section 9: Rotary Youth Exchange — Life in the USA */}
+        {/* Chapter 06: Rotary Youth Exchange — Life Across the Atlantic */}
         <RotaryUsaSection />
 
-        {/* Section 12: What's Next? */}
+        {/* Chapter 07: What's Next? (Future Horizons) */}
         <WhatsNextSection />
 
-        {/* Section 11: Get to Know Me / Contact Form */}
+        {/* Get to Know Me: Direct Contact Form */}
         <ContactSection />
       </main>
 
-      {/* Footer */}
+      {/* Architectural Minimalist Footer */}
       <Footer
         onOpenCredits={() => setShowCreditsModal(true)}
         onOpenIntegrity={() => setShowIntegrityModal(true)}
       />
 
-      {/* Modals */}
+      {/* Transparency Modals */}
       <FactIntegrityModal
         isOpen={showIntegrityModal}
         onClose={() => setShowIntegrityModal(false)}

@@ -1,10 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
+
+export const viewport: Viewport = {
+  themeColor: '#07080A',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'Jakub Ondreas • Personal Website & Digital Autobiography',
   description:
-    'Personal digital home of Jakub Ondreas (Jakub Ondreáš) — Mont Blanc ski ascent at 14, Tour du Mont Blanc 160-km traverse, Slovak club athletics with AO TJ Slávia STU Bratislava, published alpine journalism, and Rotary Youth Exchange in the USA.',
+    'Personal digital home and evolving autobiography of Jakub Ondreas (Jakub Ondreáš) — Mont Blanc ski ascent at 14, Tour du Mont Blanc 160-km traverse, Slovak club athletics with AO TJ Slávia STU Bratislava, published alpine journalism, and Rotary Youth Exchange in the United States.',
   keywords: [
     'Jakub Ondreas',
     'Jakub Ondreáš',
@@ -29,10 +35,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Chamonix-Mont-Blanc.jpg',
+        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=85&w=1200&h=630',
         width: 1200,
         height: 630,
-        alt: 'Chamonix and Mont Blanc Massif',
+        alt: 'High Alpine Mountain Massif - Jakub Ondreas Autobiography',
       },
     ],
   },
@@ -41,6 +47,7 @@ export const metadata: Metadata = {
     title: 'Jakub Ondreas • Digital Autobiography',
     description:
       'Exploring the world. Challenging limits. Creating my own path. Personal digital autobiography of Jakub Ondreas.',
+    images: ['https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=85&w=1200&h=630'],
   },
   robots: {
     index: true,
@@ -54,8 +61,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen bg-[#0E1216] text-[#E6EBE7] antialiased selection:bg-[#4D6B51] selection:text-white">
+    <html lang="en" className="scroll-smooth bg-carbon-950">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+      </head>
+      <body className="min-h-screen bg-carbon-950 text-[#E5E7EB] antialiased selection:bg-alpine-600 selection:text-white">
         {children}
       </body>
     </html>
