@@ -109,9 +109,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. Check environment configuration
-    const resendApiKey = process.env.RESEND_API_KEY;
-    const destinationEmail = process.env.CONTACT_EMAIL;
+    // 5. Check environment configuration (support both Cloudflare Workers env and process.env)
+    let resendApiKey = process.env.RESEND_API_KEY;
+    let destinationEmail = process.env.CONTACT_EMAIL || 'jakub.ondreas@gmail.com';
+
+    try {
+      const { getCloudflareContext } = await import('@opennextjs/cloudflare');
+      const { env } = await getCloudflareContext({ async: true });
+      if ((env as any)?.RESEND_API_KEY) {
+        resendApiKey = (env as any).RESEND_API_KEY;
+      }
+      if ((env as any)?.CONTACT_EMAIL) {
+        destinationEmail = (env as any).CONTACT_EMAIL;
+      }
+    } catch {
+      // Running outside Cloudflare context
+    }
 
     if (!resendApiKey) {
       // Per requirements:

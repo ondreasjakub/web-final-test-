@@ -10,6 +10,7 @@ coverage
 .next/
 out/
 .open-next/
+.wrangler/
 
 # Production
 build
