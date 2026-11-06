@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Sparkles, KeyRound, ShieldCheck, Mail, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, KeyRound, ShieldCheck, Mail } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -83,81 +83,78 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-32 px-4 sm:px-6 lg:px-8 bg-carbon-950 border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Mail className="w-4 h-4 text-goldAccent" />
-              <span className="text-[10px] font-mono tracking-superwide uppercase text-goldAccent font-semibold">
-                Get In Touch // Direct Inquiries
-              </span>
-            </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
-              Get to Know Me
-            </h2>
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#0A0A0E] border-t border-white/[0.08]">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header with Generous Whitespace */}
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <div className="flex items-center gap-2 mb-3">
+            <Mail className="w-4 h-4 text-apple-blue" />
+            <span className="text-xs uppercase tracking-widest text-apple-muted font-semibold">
+              Contact & Inquiries
+            </span>
           </div>
-          <p className="text-sm text-stoneLight-400 max-w-sm font-normal leading-relaxed">
-            Direct communication for high-altitude expedition queries, youth exchange dialogue, track athletics, or media interviews.
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+            Get to know me.
+          </h2>
+          <p className="text-base sm:text-lg text-apple-subtext mt-4 font-normal leading-relaxed">
+            Have a question about high-altitude expeditions, youth exchange in the United States, athletic training, or future collaborations? Send a note below.
           </p>
         </div>
 
-        {/* Minimalist Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Minimalist 2-Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Context & Security Specs */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 rounded-3xl bg-carbon-900 border border-white/[0.08] space-y-6">
-              <h3 className="font-display text-2xl font-bold text-white">
+          <div className="lg:col-span-5 space-y-5">
+            <div className="p-8 rounded-3xl apple-card space-y-4">
+              <h3 className="text-xl font-bold text-white tracking-tight">
                 Direct Communication
               </h3>
-              <p className="text-sm text-stoneLight-300 leading-relaxed font-normal">
+              <p className="text-sm text-apple-subtext leading-relaxed font-normal">
                 Messages submitted through this form are handled server-side via our Resend email integration. API credentials and destination mailbox addresses are stored exclusively in encrypted environment variables and never exposed to client-side code.
               </p>
 
-              <div className="space-y-4 pt-4 border-t border-white/[0.06] text-xs font-mono text-stoneLight-400">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <div className="space-y-3 pt-3 border-t border-white/[0.06] text-xs text-apple-muted">
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-apple-green flex-shrink-0" />
                   <span>Honeypot bot mitigation & rate limiting active.</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <KeyRound className="w-4 h-4 text-goldAccent flex-shrink-0" />
+                <div className="flex items-center gap-2.5">
+                  <KeyRound className="w-4 h-4 text-apple-blue flex-shrink-0" />
                   <span>Powered by server-side Resend SDK.</span>
                 </div>
               </div>
             </div>
 
-            {/* Inquiries Scope Card */}
-            <div className="p-8 rounded-3xl glass-panel space-y-3">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-goldAccent block font-semibold">
+            <div className="p-7 rounded-3xl bg-white/[0.03] border border-white/[0.06] space-y-2.5">
+              <span className="text-xs uppercase tracking-wider text-white block font-semibold">
                 Inquiries Welcome:
               </span>
-              <ul className="space-y-2 text-xs text-stoneLight-300">
+              <ul className="space-y-2 text-xs text-apple-subtext">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-goldAccent" />
-                  Alpine ski-mountaineering route insights & gear advice
+                  <span className="w-1.5 h-1.5 rounded-full bg-apple-blue" />
+                  Alpine ski-mountaineering route insights
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-goldAccent" />
-                  Rotary Youth Exchange perspectives & international experiences
+                  <span className="w-1.5 h-1.5 rounded-full bg-apple-blue" />
+                  Rotary Youth Exchange perspectives
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-goldAccent" />
-                  Athletics, 200m sprint training & club competitions
+                  <span className="w-1.5 h-1.5 rounded-full bg-apple-blue" />
+                  Athletics & 200m sprint training dialogue
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-goldAccent" />
-                  Documentary storytelling & alpine photo essays
+                  <span className="w-1.5 h-1.5 rounded-full bg-apple-blue" />
+                  Documentary articles & youth exploration media
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Right Column: High-End Minimalist Form */}
+          {/* Right Column: Clean Apple-style Form */}
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="p-8 sm:p-12 rounded-3xl bg-carbon-900 border border-white/[0.08] space-y-6 shadow-2xl"
+              className="p-8 sm:p-10 rounded-3xl apple-card space-y-5"
             >
               {/* Anti-spam honeypot field (hidden from legitimate visitors) */}
               <div className="hidden" aria-hidden="true">
@@ -177,9 +174,9 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block text-[10px] font-mono uppercase tracking-widest text-stoneLight-400 font-semibold mb-2"
+                  className="block text-xs uppercase tracking-wider text-apple-subtext font-semibold mb-2"
                 >
-                  Full Name <span className="text-goldAccent">*</span>
+                  Full Name <span className="text-white">*</span>
                 </label>
                 <input
                   type="text"
@@ -188,8 +185,8 @@ export default function ContactSection() {
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  placeholder="Your full name"
-                  className="w-full px-5 py-4 rounded-2xl bg-carbon-850 border border-white/[0.08] text-white placeholder-stoneLight-500 text-sm focus:outline-none focus:border-white/30 transition-colors"
+                  placeholder="Your name"
+                  className="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/[0.1] text-white placeholder-apple-muted text-sm focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
@@ -197,9 +194,9 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-[10px] font-mono uppercase tracking-widest text-stoneLight-400 font-semibold mb-2"
+                  className="block text-xs uppercase tracking-wider text-apple-subtext font-semibold mb-2"
                 >
-                  Email Address <span className="text-goldAccent">*</span>
+                  Email Address <span className="text-white">*</span>
                 </label>
                 <input
                   type="email"
@@ -209,7 +206,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-5 py-4 rounded-2xl bg-carbon-850 border border-white/[0.08] text-white placeholder-stoneLight-500 text-sm focus:outline-none focus:border-white/30 transition-colors"
+                  className="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/[0.1] text-white placeholder-apple-muted text-sm focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
@@ -217,9 +214,9 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-[10px] font-mono uppercase tracking-widest text-stoneLight-400 font-semibold mb-2"
+                  className="block text-xs uppercase tracking-wider text-apple-subtext font-semibold mb-2"
                 >
-                  Subject <span className="text-goldAccent">*</span>
+                  Subject <span className="text-white">*</span>
                 </label>
                 <input
                   type="text"
@@ -228,8 +225,8 @@ export default function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="Subject of inquiry"
-                  className="w-full px-5 py-4 rounded-2xl bg-carbon-850 border border-white/[0.08] text-white placeholder-stoneLight-500 text-sm focus:outline-none focus:border-white/30 transition-colors"
+                  placeholder="Subject of message"
+                  className="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/[0.1] text-white placeholder-apple-muted text-sm focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
@@ -237,9 +234,9 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-[10px] font-mono uppercase tracking-widest text-stoneLight-400 font-semibold mb-2"
+                  className="block text-xs uppercase tracking-wider text-apple-subtext font-semibold mb-2"
                 >
-                  Message <span className="text-goldAccent">*</span>
+                  Message <span className="text-white">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -248,41 +245,41 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Write your message here (min. 10 characters)..."
-                  className="w-full px-5 py-4 rounded-2xl bg-carbon-850 border border-white/[0.08] text-white placeholder-stoneLight-500 text-sm focus:outline-none focus:border-white/30 transition-colors resize-y"
+                  placeholder="Your message (min. 10 characters)..."
+                  className="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/[0.1] text-white placeholder-apple-muted text-sm focus:outline-none focus:border-white transition-colors resize-y"
                 />
               </div>
 
               {/* Status & Feedback Notifications */}
               {status === 'config_pending' && (
-                <div className="p-5 rounded-2xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs space-y-2 animate-fade-in">
+                <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs space-y-2 animate-fade-in">
                   <div className="flex items-center gap-2 font-bold text-amber-300">
                     <KeyRound className="w-4 h-4 flex-shrink-0" />
                     <span>Configuration Notice</span>
                   </div>
                   <p className="leading-relaxed font-normal">{feedbackMessage}</p>
                   {validatedPreview && (
-                    <div className="p-3 rounded-xl bg-carbon-950/80 border border-white/5 font-mono text-[11px] text-stoneLight-300">
+                    <div className="p-3 rounded-xl bg-black/60 border border-white/5 font-mono text-[11px] text-apple-subtext">
                       <div>✓ Validated Sender: {validatedPreview.name} &lt;{validatedPreview.from}&gt;</div>
                       <div>✓ Validated Subject: {validatedPreview.subject}</div>
                     </div>
                   )}
-                  <p className="text-[10px] font-mono text-stoneLight-400 italic">
+                  <p className="text-[10px] text-apple-muted italic">
                     Per brief specifications: The website never falsely claims email delivery when credentials are not configured.
                   </p>
                 </div>
               )}
 
               {status === 'success' && (
-                <div className="p-5 rounded-2xl bg-alpine-950/60 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-3 animate-fade-in">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-3 animate-fade-in">
+                  <CheckCircle2 className="w-4 h-4 text-apple-green flex-shrink-0" />
                   <p className="leading-relaxed">{feedbackMessage}</p>
                 </div>
               )}
 
               {status === 'error' && (
-                <div className="p-5 rounded-2xl bg-rose-950/50 border border-rose-500/40 text-rose-200 text-xs flex items-center gap-3 animate-fade-in">
-                  <AlertCircle className="w-5 h-5 text-rose-400 flex-shrink-0" />
+                <div className="p-4 rounded-2xl bg-rose-950/50 border border-rose-500/40 text-rose-200 text-xs flex items-center gap-3 animate-fade-in">
+                  <AlertCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
                   <p className="leading-relaxed">{feedbackMessage}</p>
                 </div>
               )}
@@ -291,11 +288,11 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-stoneLight-200 active:bg-stoneLight-300 disabled:opacity-50 text-carbon-950 font-display font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-xl cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-[#F5F5F7] active:bg-[#E5E5E7] disabled:opacity-50 text-black font-semibold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-md"
               >
                 {status === 'loading' ? (
                   <span className="flex items-center gap-2">
-                    <span className="w-4 h-4 border-2 border-carbon-950/30 border-t-carbon-950 rounded-full animate-spin" />
+                    <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                     Validating & Sending...
                   </span>
                 ) : (
