@@ -2,23 +2,21 @@
 
 import React from 'react';
 import { FUTURE_MILESTONES } from '@/data/content';
-import { Compass, ArrowRight, Target, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function WhatsNextSection() {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-carbon-900 border-t border-white/[0.06]">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/[0.08]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-          <div>
-            <span className="text-[10px] font-mono tracking-superwide uppercase text-goldAccent block mb-3 font-semibold">
-              Chapter 07 // Forward Horizons
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
-              What Comes Next?
-            </h2>
-          </div>
-          <p className="text-sm text-stoneLight-400 max-w-sm font-normal leading-relaxed">
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <span className="text-xs uppercase tracking-widest text-apple-muted font-semibold block mb-3">
+            Looking Ahead
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+            What comes next?
+          </h2>
+          <p className="text-base sm:text-lg text-apple-subtext mt-4 font-normal leading-relaxed">
             Upcoming alpine ambitions, endurance races, documentary writing, and academic pathways across the globe.
           </p>
         </div>
@@ -28,22 +26,22 @@ export default function WhatsNextSection() {
           {FUTURE_MILESTONES.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-carbon-850 border border-white/[0.08] hover:border-white/[0.2] transition-all duration-500 group"
+              className="p-8 rounded-3xl apple-card group"
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-mono uppercase tracking-widest font-semibold text-goldAccent">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs uppercase tracking-wider font-semibold text-apple-muted">
                   {item.category}
                 </span>
-                <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-stoneLight-300">
+                <span className="text-xs px-3 py-0.5 rounded-full bg-white/[0.06] text-white font-medium">
                   {item.target}
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl font-bold text-white mb-3 group-hover:text-goldAccent transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-apple-blue transition-colors tracking-tight">
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-stoneLight-300 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-apple-subtext leading-relaxed font-normal">
                 {item.description}
               </p>
             </div>
@@ -51,13 +49,13 @@ export default function WhatsNextSection() {
         </div>
 
         {/* Minimalist Contact Callout */}
-        <div className="p-8 rounded-3xl glass-panel text-center max-w-3xl mx-auto">
-          <p className="text-sm text-stoneLight-300 font-normal mb-4">
+        <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/[0.06] text-center max-w-2xl mx-auto">
+          <p className="text-sm text-apple-subtext font-normal mb-4">
             Looking to propose an expedition, athletic collaboration, or media interview?
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-carbon-950 font-display font-semibold text-xs tracking-wider uppercase transition-all hover:bg-stoneLight-200"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider transition-all hover:bg-[#F5F5F7]"
           >
             <span>Initiate a Conversation</span>
             <ArrowRight className="w-3.5 h-3.5" />
