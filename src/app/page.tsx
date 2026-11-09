@@ -1,77 +1,40 @@
 'use client';
 
-import React, { useState } from 'react';
-import Navbar from '@/components/Navbar';
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import AutobiographyTimeline from '@/components/AutobiographyTimeline';
-import ExpeditionsSection from '@/components/ExpeditionsSection';
-import SportsSection from '@/components/SportsSection';
-import PublicationsSection from '@/components/PublicationsSection';
-import RotaryUsaSection from '@/components/RotaryUsaSection';
-import WhatsNextSection from '@/components/WhatsNextSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
-import FactIntegrityModal from '@/components/FactIntegrityModal';
 import PhotoCreditsModal from '@/components/PhotoCreditsModal';
+import { PHOTO_CREDITS } from '@/data/content';
+import { chapters } from '@/data/journal';
 
 export default function Home() {
-  const [showIntegrityModal, setShowIntegrityModal] = useState(false);
-  const [showCreditsModal, setShowCreditsModal] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-carbon-950 text-[#E5E7EB] selection:bg-alpine-600 selection:text-white">
-      {/* Top Floating Glass Navigation */}
-      <Navbar />
-
-      {/* Main Editorial Content Sequence */}
-      <main id="main-content" tabIndex={-1}>
-        {/* Full-Screen Hero */}
-        <HeroSection
-          onOpenCredits={() => setShowCreditsModal(true)}
-        />
-
-        {/* Chapter 01: My Story & Mountain Roots */}
-        <AboutSection />
-
-        {/* Chapter 02: 8-Part Chronological Autobiography Timeline */}
-        <AutobiographyTimeline />
-
-        {/* Chapter 03: Mont Blanc 2025 & Tour du Mont Blanc 2026 Expeditions */}
-        <ExpeditionsSection />
-
-        {/* Chapter 04: Athletics with Slávia STU & 9 Outdoor Disciplines */}
-        <SportsSection />
-
-        {/* Chapter 05: Stories, Articles & National Media (STVR / Tulení pásy) */}
-        <PublicationsSection />
-
-        {/* Chapter 06: Rotary Youth Exchange — Life Across the Atlantic */}
-        <RotaryUsaSection />
-
-        {/* Chapter 07: What's Next? (Future Horizons) */}
-        <WhatsNextSection />
-
-        {/* Get to Know Me: Direct Contact Form */}
-        <ContactSection />
-      </main>
-
-      {/* Architectural Minimalist Footer */}
-      <Footer
-        onOpenCredits={() => setShowCreditsModal(true)}
-        onOpenIntegrity={() => setShowIntegrityModal(true)}
-      />
-
-      {/* Transparency Modals */}
-      <FactIntegrityModal
-        isOpen={showIntegrityModal}
-        onClose={() => setShowIntegrityModal(false)}
-      />
-
-      <PhotoCreditsModal
-        isOpen={showCreditsModal}
-        onClose={() => setShowCreditsModal(false)}
-      />
-    </div>
+    <>
+      <HeroSection onOpenCredits={() => setShowCredits(true)} />
+      <section id="highlights" className="journal-highlights" aria-labelledby="highlights-title">
+        <p className="journal-label">A little about me</p>
+        <h2 id="highlights-title">Explore the journal</h2>
+        <p className="journal-home-intro">I’m Jakub, a student from Bratislava. I grew up spending weekends in the Tatras, and those mountains are where my love of skiing, hiking and long days outside began.</p>
+        <div className="journal-grid">
+          {chapters.map(({ slug, nav, summary, photo }) => (
+            <Link key={slug} href={'/' + slug} className={photo ? 'journal-tile' : 'journal-tile journal-tile-text'}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {photo && <img src={PHOTO_CREDITS[photo].imageUrl} alt="" loading="lazy" decoding="async" />}
+              <div className="journal-tile-copy">
+                <div><h3>{nav}</h3><p>{summary}</p></div>
+                <ArrowUpRight size={22} aria-hidden="true" />
+              </div>
+            </Link>
+          ))}
+        </div>
+        <button type="button" className="journal-photo-link" onClick={() => setShowCredits(true)}>
+          Illustrative photography and credits
+        </button>
+      </section>
+      <PhotoCreditsModal isOpen={showCredits} onClose={() => setShowCredits(false)} />
+    </>
   );
 }

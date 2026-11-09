@@ -16,7 +16,7 @@ export interface PhotoCredit {
   sourceUrl: string;
   imageUrl: string;
   role: string;
-  category: 'Mont Blanc' | 'Tour du Mont Blanc' | 'Athletics' | 'Cycling & Adventure' | 'Rotary USA' | 'Reference Map';
+  category: 'Mont Blanc' | 'Tour du Mont Blanc' | 'Athletics' | 'Cycling & Adventure' | 'Rotary USA' | 'Reference Map' | 'Western Tatras';
   attributionNote: string;
 }
 
@@ -69,6 +69,31 @@ export interface StageInfo {
 }
 
 export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
+  western_tatras: {
+    id: 'western_tatras',
+    title: 'Žiarska dolina from the trail to Smutné sedlo',
+    creator: 'Jerzy Opioła',
+    license: 'CC BY-SA 3.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:%C5%BBarska_Dolina_a1.jpg',
+    imageUrl: '/photos/western-tatras.webp',
+    role: 'Western Tatras chapter cover',
+    category: 'Western Tatras',
+    attributionNote: 'Žiarska dolina photographed by Jerzy Opioła. Resized for the web under CC BY-SA 3.0.',
+  },
+  journal_bicycle: {
+    id: 'journal_bicycle',
+    title: 'A bikepacking bicycle silhouetted on a hill',
+    creator: 'Patrick Hendry',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/orange-and-black-off-road-bicycle-on-hill-1ow9zrlldJU',
+    imageUrl: '/photos/bikepacking.webp',
+    role: 'Sport chapter cover',
+    category: 'Cycling & Adventure',
+    attributionNote: 'Illustrative bikepacking photo by Patrick Hendry via Unsplash.',
+  },
+
   // Hero & Mont Blanc Expedition
   hero_montblanc: {
     id: 'hero_montblanc',
@@ -125,10 +150,10 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
     license: 'CC BY-SA 3.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mont_Blanc_Face_N.jpg',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Mont_Blanc_Face_N.jpg',
+    imageUrl: '/photos/mont-blanc.webp',
     role: 'Mont Blanc North Face Reference',
     category: 'Mont Blanc',
-    attributionNote: 'Illustrative Wikimedia Commons reference under CC BY-SA 3.0.',
+    attributionNote: 'Mont Blanc north face photographed by Christian. Resized for the web under CC BY-SA 3.0.',
   },
 
   expedition_hikers: {
