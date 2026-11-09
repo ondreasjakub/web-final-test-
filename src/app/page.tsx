@@ -22,17 +22,13 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-carbon-950 text-[#E5E7EB] selection:bg-alpine-600 selection:text-white">
       {/* Top Floating Glass Navigation */}
-      <Navbar
-        onOpenIntegrity={() => setShowIntegrityModal(true)}
-        onOpenCredits={() => setShowCreditsModal(true)}
-      />
+      <Navbar />
 
       {/* Main Editorial Content Sequence */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Full-Screen Hero */}
         <HeroSection
           onOpenCredits={() => setShowCreditsModal(true)}
-          onOpenIntegrity={() => setShowIntegrityModal(true)}
         />
 
         {/* Chapter 01: My Story & Mountain Roots */}
