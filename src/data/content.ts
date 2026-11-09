@@ -72,15 +72,15 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
   // Hero & Mont Blanc Expedition
   hero_montblanc: {
     id: 'hero_montblanc',
-    title: 'High Alpine Massif & Granite Spire at Sunset',
+    title: 'Snow-Capped Mountains and Forest in Yukon',
     creator: 'Kalen Emsley',
     license: 'Unsplash License (Free to use)',
     licenseUrl: 'https://unsplash.com/license',
-    sourceUrl: 'https://unsplash.com/photos/landscape-photography-of-mountain-under-white-clouds-and-blue-sky-during-daytime-Bkci_8qcdvQ',
-    imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=85&w=2400',
+    sourceUrl: 'https://unsplash.com/photos/snow-capped-mountains-with-valley-and-forest-Bkci_8qcdvQ',
+    imageUrl: '/photos/hero_montblanc.webp',
     role: 'Hero Background • High-altitude Alpine atmosphere',
     category: 'Mont Blanc',
-    attributionNote: 'Illustrative high-altitude alpine scenery by Kalen Emsley via Unsplash.',
+    attributionNote: 'Illustrative Yukon landscape by Kalen Emsley via Unsplash.',
   },
   montblanc_skimo: {
     id: 'montblanc_skimo',
@@ -129,6 +129,19 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
     role: 'Mont Blanc North Face Reference',
     category: 'Mont Blanc',
     attributionNote: 'Illustrative Wikimedia Commons reference under CC BY-SA 3.0.',
+  },
+
+  expedition_hikers: {
+    id: 'expedition_hikers',
+    title: 'Hikers above an alpine lake',
+    creator: 'Kalen Emsley',
+    license: 'Unsplash License (Free to use)',
+    licenseUrl: 'https://unsplash.com/license',
+    sourceUrl: 'https://unsplash.com/photos/couple-at-the-peak-facing-mountain-uSFOwYo1qEw',
+    imageUrl: '/photos/expedition-hikers.webp',
+    role: 'Expeditions chapter cover',
+    category: 'Tour du Mont Blanc',
+    attributionNote: 'Illustrative hiking photo from Canmore, Canada, by Kalen Emsley via Unsplash.',
   },
 
   // Tour du Mont Blanc
@@ -184,12 +197,12 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
   // Athletics
   athletics_track: {
     id: 'athletics_track',
-    title: 'All-Weather Athletics Running Track',
+    title: 'Runner on an Athletics Track',
     creator: 'Braden Collum',
     license: 'Unsplash License (Free to use)',
     licenseUrl: 'https://unsplash.com/license',
-    sourceUrl: 'https://unsplash.com/photos/empty-running-track-lane-1461896836934',
-    imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=85&w=1600',
+    sourceUrl: 'https://unsplash.com/photos/9HI8UJMSdZA',
+    imageUrl: '/photos/athletics_track.webp',
     role: 'Athletics Club Focus • AO TJ Slávia STU Bratislava',
     category: 'Athletics',
     attributionNote: 'Illustrative running track visual by Braden Collum via Unsplash.',
@@ -260,12 +273,12 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
   // Rotary Youth Exchange (USA)
   rotary_landscape: {
     id: 'rotary_landscape',
-    title: 'Expansive American Mountain Wilderness',
+    title: 'Yosemite Valley',
     creator: 'Bailey Zindel',
     license: 'Unsplash License (Free to use)',
     licenseUrl: 'https://unsplash.com/license',
-    sourceUrl: 'https://unsplash.com/photos/rocky-mountain-surrounded-by-pine-trees-1506744038136',
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=85&w=1600',
+    sourceUrl: 'https://unsplash.com/photos/body-of-water-surrounded-by-trees-NRQV-hBF10M',
+    imageUrl: '/photos/rotary_landscape.webp',
     role: 'American Landscapes Exploration',
     category: 'Rotary USA',
     attributionNote: 'Illustrative American wilderness scenery by Bailey Zindel via Unsplash.',
