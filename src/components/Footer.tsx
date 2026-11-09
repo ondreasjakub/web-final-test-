@@ -2,9 +2,8 @@ import Link from 'next/link';
 import { SITE_METADATA } from '@/data/content';
 import { chapters } from '@/data/journal';
 
-export default function Footer({ onOpenCredits, onOpenIntegrity }: {
+export default function Footer({ onOpenCredits }: {
   onOpenCredits: () => void;
-  onOpenIntegrity: () => void;
 }) {
   return (
     <footer className="journal-footer">
@@ -15,7 +14,6 @@ export default function Footer({ onOpenCredits, onOpenIntegrity }: {
         </nav>
         <div className="journal-footer-notes">
           <button type="button" onClick={onOpenCredits}>Photography credits</button>
-          <button type="button" onClick={onOpenIntegrity}>Fact standard</button>
         </div>
       </div>
     </footer>
