@@ -16,11 +16,11 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-carbon-950/85 backdrop-blur-2xl animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/65 backdrop-blur-2xl animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="bg-carbon-900 border border-white/[0.12] max-w-2xl w-full rounded-3xl p-6 sm:p-8 text-stoneLight-200 shadow-2xl relative max-h-[90vh] overflow-y-auto"
+        className="bg-[#18211d] border border-white/[0.12] max-w-2xl w-full rounded-3xl p-6 sm:p-8 text-stone-200 shadow-2xl relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -30,7 +30,7 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[10px] font-mono tracking-superwide uppercase text-goldAccent block">
+              <span className="text-[10px] font-mono tracking-superwide uppercase text-amber-200 block">
                 Editorial Standard
               </span>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-white mt-0.5">
@@ -40,7 +40,7 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
           </div>
           <button
             onClick={onClose}
-            className="text-stoneLight-400 hover:text-white p-2 rounded-xl hover:bg-carbon-800 transition-colors cursor-pointer"
+            className="text-stone-400 hover:text-white p-2 rounded-xl hover:bg-stone-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -48,37 +48,37 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
 
         {/* Legend of Badges */}
         <div className="space-y-4 mb-8">
-          <h4 className="text-[10px] font-mono uppercase tracking-widest text-stoneLight-400 font-bold">
+          <h4 className="text-[10px] font-mono uppercase tracking-widest text-stone-400 font-bold">
             Classification Standard
           </h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-4 rounded-2xl bg-carbon-850 border border-white/[0.06]">
+            <div className="p-4 rounded-2xl bg-[#26312c] border border-white/[0.06]">
               <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-300 mb-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Public Record</span>
               </div>
-              <p className="text-[11px] text-stoneLight-400 leading-tight">
+              <p className="text-[11px] text-stone-400 leading-tight">
                 Verified from published media (Tulení pásy, STVR, Slovak athletics archives).
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-carbon-850 border border-white/[0.06]">
+            <div className="p-4 rounded-2xl bg-[#26312c] border border-white/[0.06]">
               <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-sky-300 mb-1">
                 <UserCheck className="w-3.5 h-3.5 text-sky-400" />
                 <span>Direct Statement</span>
               </div>
-              <p className="text-[11px] text-stoneLight-400 leading-tight">
+              <p className="text-[11px] text-stone-400 leading-tight">
                 First-person statements supplied directly by Jakub Ondreas.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-carbon-850 border border-white/[0.06]">
+            <div className="p-4 rounded-2xl bg-[#26312c] border border-white/[0.06]">
               <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-amber-300 mb-1">
                 <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
                 <span>Awaiting Doc</span>
               </div>
-              <p className="text-[11px] text-stoneLight-400 leading-tight">
+              <p className="text-[11px] text-stone-400 leading-tight">
                 Held as editable placeholder awaiting confirmed document upload.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
             {FACTS_REQUIRING_CONFIRMATION.map((item) => (
               <div
                 key={item.id}
-                className="p-4 rounded-2xl bg-carbon-850 border border-white/[0.06] space-y-1.5"
+                className="p-4 rounded-2xl bg-[#26312c] border border-white/[0.06] space-y-1.5"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-display font-bold text-white">{item.item}</span>
@@ -104,10 +104,10 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
                     Pending
                   </span>
                 </div>
-                <p className="text-xs text-stoneLight-400">
+                <p className="text-xs text-stone-400">
                   <strong>Current representation:</strong> {item.currentStatus}
                 </p>
-                <p className="text-xs text-stoneLight-300">
+                <p className="text-xs text-stone-300">
                   <strong>Action needed:</strong> {item.neededAction}
                 </p>
               </div>
@@ -116,7 +116,7 @@ export default function FactIntegrityModal({ isOpen, onClose }: Props) {
         </div>
 
         {/* Strict Editorial Commitments */}
-        <div className="p-4 rounded-2xl glass-panel text-xs text-stoneLight-400 space-y-2 mb-6">
+        <div className="p-4 rounded-2xl glass-panel text-xs text-stone-400 space-y-2 mb-6">
           <h5 className="font-semibold text-white font-display">Editorial Commitments:</h5>
           <ul className="list-disc list-inside space-y-1 leading-relaxed">
             <li>Strictly no unverified &ldquo;youngest in the world&rdquo; or world-record claims are made.</li>

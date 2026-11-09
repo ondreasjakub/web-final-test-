@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import JournalFrame from '@/components/JournalFrame';
 
 export const viewport: Viewport = {
-  themeColor: '#07080A',
+  themeColor: '#f5f5ef',
   width: 'device-width',
   initialScale: 1,
 };
@@ -61,14 +62,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth bg-carbon-950">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
-      <body className="min-h-screen bg-carbon-950 text-[#E5E7EB] antialiased selection:bg-alpine-600 selection:text-white">
-        {children}
+      <body className="min-h-screen antialiased">
+        <JournalFrame>{children}</JournalFrame>
       </body>
     </html>
   );
