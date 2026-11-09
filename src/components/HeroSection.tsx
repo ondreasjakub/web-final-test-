@@ -1,7 +1,7 @@
 import { ArrowDown } from 'lucide-react';
 import { PHOTO_CREDITS, SITE_METADATA } from '@/data/content';
 
-export default function HeroSection({ onOpenCredits }: { onOpenCredits: () => void }) {
+export default function HeroSection() {
   return (
     <section id="home" className="intro-hero" aria-labelledby="hero-title">
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -16,9 +16,6 @@ export default function HeroSection({ onOpenCredits }: { onOpenCredits: () => vo
           Explore the journal <ArrowDown size={16} aria-hidden="true" />
         </a>
       </div>
-      <button type="button" className="intro-credit" onClick={onOpenCredits}>
-        Illustrative photo · Kalen Emsley
-      </button>
     </section>
-);
+  );
 }

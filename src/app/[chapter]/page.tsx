@@ -11,10 +11,9 @@ import SportsSection from '@/components/SportsSection';
 import RotaryUsaSection from '@/components/RotaryUsaSection';
 import PublicationsSection from '@/components/PublicationsSection';
 import ContactSection from '@/components/ContactSection';
-import WhatsNextSection from '@/components/WhatsNextSection';
 
 const content = {
-  story: () => <><AboutSection /><AutobiographyTimeline /><WhatsNextSection /></>,
+  story: () => <><AboutSection /><AutobiographyTimeline /></>,
   expeditions: ExpeditionsSection,
   sports: SportsSection,
   usa: RotaryUsaSection,
@@ -56,10 +55,6 @@ export default async function ChapterPage({ params }: Props) {
           <figure>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={photo.imageUrl} alt={photo.title} fetchPriority="high" />
-            <figcaption>
-              <a href={photo.sourceUrl}>{photo.creator}</a> · <a href={photo.licenseUrl}>{photo.license}</a>
-              {photo.license === 'CC BY-SA 3.0' ? ' · Resized for the web' : ' · Illustrative photo'}
-            </figcaption>
           </figure>
         )}
       </header>

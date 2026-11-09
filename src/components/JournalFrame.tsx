@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import FactIntegrityModal from './FactIntegrityModal';
 import PhotoCreditsModal from './PhotoCreditsModal';
 
 const legacyChapters: Record<string, string> = {
@@ -18,7 +17,7 @@ const legacyChapters: Record<string, string> = {
 };
 
 export default function JournalFrame({ children }: { children: React.ReactNode }) {
-  const [dialog, setDialog] = useState<'facts' | 'photos' | null>(null);
+  const [showCredits, setShowCredits] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -32,9 +31,8 @@ export default function JournalFrame({ children }: { children: React.ReactNode }
     <>
       <Navbar key={pathname} />
       <main id="main-content" tabIndex={-1}>{children}</main>
-      <Footer onOpenCredits={() => setDialog('photos')} onOpenIntegrity={() => setDialog('facts')} />
-      <FactIntegrityModal isOpen={dialog === 'facts'} onClose={() => setDialog(null)} />
-      <PhotoCreditsModal isOpen={dialog === 'photos'} onClose={() => setDialog(null)} />
+      <Footer onOpenCredits={() => setShowCredits(true)} />
+      {showCredits && <PhotoCreditsModal onClose={() => setShowCredits(false)} />}
     </>
   );
 }
